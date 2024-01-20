@@ -1,0 +1,17 @@
+# 初回のみライブラリをインポートする
+import pandas as pd
+import matplotlib.pyplot as plt
+import japanize_matplotlib
+
+# csvファイルをデータフレームとして読み込む
+df = pd.read_csv("sample_pandas_6.csv")
+df = pd.merge(df, category_df[['商品番号', 'カテゴリー']], how='inner', on='商品番号')
+
+df['カテゴリー'].value_counts()
+import matplotlib.pyplot as plt
+
+# この行で Matplotlib をインポートすることを忘れずに
+df['カテゴリー'].value_counts().plot(kind='bar')
+plt.show()
+import pandas as pd
+df.groupby('商品番号')['注文数'].describe()
